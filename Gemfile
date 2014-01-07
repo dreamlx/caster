@@ -12,7 +12,7 @@ gem 'devise'
 gem 'qiniu-rs'
 gem 'carrierwave-qiniu'
 gem 'carrierwave'
-
+gem 'oj'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
