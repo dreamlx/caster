@@ -4,9 +4,14 @@ Caster::Application.routes.draw do
 
   namespace :api do
     resources :venues
+    
     resources :rooms
+    
     resources :courses
+    resources :seats
     resources :lessons
+    resources :teachers
+    resources :orders
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
