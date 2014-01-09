@@ -1,17 +1,19 @@
 Caster::Application.routes.draw do
+  devise_for :users
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   namespace :api do
     resources :venues
-    
     resources :rooms
-    
     resources :courses
     resources :seats
     resources :lessons
     resources :teachers
     resources :orders
+    devise_for :users
+    resources :tokens,:only => [:create, :destroy, :show]
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

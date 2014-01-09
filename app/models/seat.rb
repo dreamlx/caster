@@ -1,4 +1,4 @@
 class Seat < ActiveRecord::Base
-  attr_accessible :lesson_id, :name, :state
-  belongs_to :lesson
+  attr_accessible :room_id, :name, :state
+  belongs_to :room
 end

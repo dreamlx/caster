@@ -73,3 +73,35 @@
 
 ###show 单个老师
     curl http://127.0.0.1:3000/api/teachers/1    
+
+## User 用户
+### create 创建用户
+    curl -d "user[email]=test2@gmail.com&user[password]=11111111" http://127.0.0.1:3000/api/users
+    参数：
+        user[email]
+        user[password]
+    action： POST
+    
+    => 
+    {"created_at":"2014-01-09T12:10:30Z","email":"test3@gmail.com","id":3,"updated_at":"2014-01-09T12:10:30Z","username":null}
+
+
+### 获取token
+获取到token后，使用方法： http://xx.xxx.xx/resources?auth_token=ramECuxkizHhT2GoHuLv
+
+    curl -d "email=test@gmail.com&password=11111111" http://127.0.0.1:3000/api/tokens            
+    参数：
+        user[email]
+        user[password]
+    action： POST
+    =>
+    {"token":"ramECuxkizHhT2GoHuLv","user":{"created_at":"2014-01-09T12:01:16Z","email":"test@gmail.com","id":1,"updated_at":"2014-01-09T12:01:16Z","username":null}} 
+
+### show user
+    curl http://127.0.0.1:3000/api/tokens/ramECuxkizHhT2GoHuLv
+    =>
+### 注销token
+    curl -X DELETE http://127.0.0.1:3000/api/tokens/ramECuxkizHhT2GoHuLv
+    action: DELETE
+    =>
+
