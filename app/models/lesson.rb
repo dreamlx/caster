@@ -1,11 +1,13 @@
 class Lesson < ActiveRecord::Base
   attr_accessible   :description,  
-                    :name, :room_id, 
+                    :name, 
+                    :room_id, 
                     :teacher_id, 
                     :course_id, 
                     :supply,
                     :starting_time,
-                    :ending_time
+                    :ending_time,
+                    :point
   
   belongs_to        :room
   belongs_to        :teacher

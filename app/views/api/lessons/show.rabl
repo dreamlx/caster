@@ -2,9 +2,9 @@
 
 object @lesson
 
-attributes :id, :lessontime
+attributes :id, :starting_time, :ending_time, :supply
 
-child(:teacher) { attributes :id, :name, :img, :description, :supply }
+child(:teacher) { attributes :id, :name, :img, :description }
 child(:room) { attributes :name }
 child(:course) { attributes :name, :description }
 node(:status) { |lesson| "订满" }

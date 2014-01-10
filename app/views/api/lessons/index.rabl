@@ -3,10 +3,13 @@
 
 collection @lessons
 
-attributes :id, :lessontime
+attributes :id, :starting_time, :ending_time
 
 child(:teacher) { attributes :id, :name, :img }
 child(:room) { attributes :id, :name }
 child(:course) { attributes :name }
 
-node(:status) { |lesson| "预定" }
+node(:status) do |lesson| 
+  lesson_state = '订满'
+  lesson.seats.each { |seat| lesson_state = '未满' if seat.state == '可选' } 
+end
