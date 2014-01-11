@@ -5,7 +5,7 @@ collection @lessons
 
 attributes :id, :starting_time, :ending_time
 
-child(:teacher) { attributes :id, :name, :img }
+child(:teacher) { attributes :id, :name, :img_url }
 child(:room) { attributes :id, :name }
 child(:course) { attributes :name }
 

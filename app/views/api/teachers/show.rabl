@@ -2,5 +2,5 @@
 
 object @teacher
 
-attributes :id, :name, :img, :description
+attributes :id, :name, :img_url, :description
 node(:first_letter){|teacher| "A"}

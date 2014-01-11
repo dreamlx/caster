@@ -1,3 +1,3 @@
 object @room
 
-attributes :id, :name, :description, :img, :seatcount, :number_of_line
+attributes :id, :name, :description, :seatcount, :number_of_line

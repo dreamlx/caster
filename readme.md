@@ -6,6 +6,10 @@
 #api
 全局说明：凡是'/1'这样形式出现的，这里的数字1就是对应资源id号，类型integer
 
+图片用了qiniu云，img_url 可以跟参数，?imageView/2
+    
+    http://docs.qiniu.com/api/v6/image-process.html
+
 ## venue 场馆
 ###index
 首页，查询场馆list

@@ -14,7 +14,6 @@ module Api
     end
 
     def create
-      #TODO 完成订单
       @order = Order.new(user_id: params[:user_id], seat_id: params[:seat_id])
 
       if @order.save
@@ -22,7 +21,6 @@ module Api
       else
         render status: 404, json: { message: 'Save order failed' }
       end
-
     end
   end
 end

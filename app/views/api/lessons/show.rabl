@@ -4,7 +4,7 @@ object @lesson
 
 attributes :id, :starting_time, :ending_time, :supply
 
-child(:teacher) { attributes :id, :name, :img, :description }
+child(:teacher) { attributes :id, :name, :img_url, :description }
 child(:room) { attributes :name }
 child(:course) { attributes :name, :description }
 node(:status) { |lesson| "订满" }

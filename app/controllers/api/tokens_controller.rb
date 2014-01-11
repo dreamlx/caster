@@ -17,8 +17,8 @@ module Api
 
     def create
     # Grab the required params
-      email = params[:email]
-      password = params[:password]
+      email = params[:user][:email]
+      password = params[:user][:password]
       #if request.format != :json  # Ensure the request is JSON   
           #render :status=>406, :json=>{:message=>"The request must be json"}
           #return
