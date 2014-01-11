@@ -23,7 +23,7 @@ ActiveAdmin.register Venue do
       row :name
       row :description
       row :img do
-        image_tag(venue.image.url)
+        image_tag(venue.img.url)
       end
     end
     active_admin_comments

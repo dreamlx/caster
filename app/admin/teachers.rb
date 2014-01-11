@@ -16,7 +16,7 @@ ActiveAdmin.register Teacher do
       row :name
       row :description
       row :img do
-        image_tag(teacher.image.url)
+        image_tag(teacher.img.url)
       end
     end
     active_admin_comments
