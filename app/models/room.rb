@@ -6,5 +6,6 @@ class Room < ActiveRecord::Base
                   :seatcount, 
                   :number_of_line
   has_many :seats, :dependent => :delete_all 
+  has_many :lessons
   belongs_to :venue
 end

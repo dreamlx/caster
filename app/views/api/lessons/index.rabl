@@ -5,9 +5,9 @@ collection @lessons
 
 attributes :id, :starting_time, :ending_time
 
-child(:teacher) { attributes :id, :name, :img_url }
-child(:room) { attributes :id, :name }
-child(:course) { attributes :name }
+child(:teacher => :teacher) { attributes :id, :name, :img_url }
+child(:room => :room) { attributes :id, :name }
+child(:course => :course) { attributes :name }
 
 node(:status) do |lesson| 
   lesson_state = '订满'
