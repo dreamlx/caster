@@ -8,10 +8,10 @@ module Api
     def show
       @user=User.find_by_authentication_token(params[:id])
       if @user.nil?
-        render :status=>404, :json=>{:state => 'error',:message=>"Invalid token."}
+        render :json=>{:state => 'error',:message=>"Invalid token."}
       else
        
-        render :status=>200, :json=>{ :state => 'ok', :token=>@user.authentication_token, :user=>@user }
+        render :json=>{ :state => 'ok', :token=>@user.authentication_token, :user=>@user }
       end
     end
 
@@ -25,23 +25,22 @@ module Api
       #end
 
       if email.nil? or password.nil?  # Ensure that both email and password are not nil
-         render :status=>400, 
-                :json=>{:state => 'error', :message=>"The request must contain the user email and password."}
+         render :json=>{:state => 'error', :message=>"The request must contain the user email and password."}
          return
       end
 
       @user=User.find_by_email(email.downcase) #Find the User
       if @user.nil? # If user does not exist
-        render :status=>401, :json=>{:message=>"Invalid email or passoword.", :state => 'error'}
+        render :json=>{:message=>"Invalid email or passoword.", :state => 'error'}
         return
       end
 
       @user.ensure_authentication_token! #Generates a new token for the user
       if not @user.valid_password?(password) # Check the password
-        render :status=>401, :json=>{:state => 'error', :message=>"Invalid email or password."}
+        render :json=>{:state => 'error', :message=>"Invalid email or password."}
 
       else
-        render :status=>200, :json=> {:state => 'ok', :token=>@user.authentication_token, :user=>@user}
+        render :json=> {:state => 'ok', :token=>@user.authentication_token, :user=>@user}
         #Return the token back to the user{:token=>@user.authentication_token}
         @user.save # Save the token into the database
       end
@@ -50,10 +49,10 @@ module Api
     def destroy
       @user=User.find_by_authentication_token(params[:id])
       if @user.nil?
-        render :status=>404,  :json=>{:state => 'error',:message=>"Invalid token."}
+        render :json=>{:state => 'error',:message=>"Invalid token."}
       else
         @user.reset_authentication_token!
-        render :status=>200,  :json=>{:state => 'ok', :token=>params[:id]}
+        render :json=>{:state => 'ok', :token=>params[:id]}
       end
     end
 

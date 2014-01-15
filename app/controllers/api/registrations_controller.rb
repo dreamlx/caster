@@ -4,11 +4,11 @@ module Api
     def create
       user = User.new(params[:user])
       if user.save
-        render :json=> user.as_json(:auth_token=>user.authentication_token, :email=>user.email), :status=>201,:state => 'ok'
+        render :json=> { user: user,:token=>@user.authentication_token, :state => 'ok'}
         return
       else
         warden.custom_failure!
-        render :json=> user.errors, :status=>422, :state => 'error'
+        render :json=> {message: user.errors, state: 'error'}
       end
     end
   end
