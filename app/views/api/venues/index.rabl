@@ -1,4 +1,4 @@
-collection @venues,, :root => "venues"
+collection @venues, :root => "venues"
 
 attributes :id, :name, :img_url
 
