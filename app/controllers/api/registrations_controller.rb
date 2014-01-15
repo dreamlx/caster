@@ -3,7 +3,7 @@ module Api
     respond_to :json
     def create
       @user = User.new(params[:user])
-      if user.save
+      if @user.save
         render :json=> { user: @user,:token=>@user.authentication_token, :state => 'ok'}
         return
       else

@@ -87,7 +87,7 @@
     action： POST
     
     => 
-    {"created_at":"2014-01-09T12:10:30Z","email":"test3@gmail.com","id":3,"updated_at":"2014-01-09T12:10:30Z","username":null}
+    {"user":{"created_at":"2014-01-15T07:54:12Z","email":"test8@gmail.com","id":8,"updated_at":"2014-01-15T07:54:12Z","username":null},"token":"C3tXVd8uMyiUmJSr61mU","state":"ok"}%
 
 
 ### 获取token
