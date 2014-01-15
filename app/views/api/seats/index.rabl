@@ -1,5 +1,4 @@
 #座位列表、每个座位的状态、总共座位数、每一排的座位数
-object @lesson => :seats_info
-child(:room)      { attributes :seatcount, :number_of_line }
-node(:lesson_id)  { |lesson| @lesson.id }
-child(:seats)     { attributes :name, :state }
+collection @seats, :root => "seats"
+attributes :name, :state
+child(:room) { attributes :seatcount, :number_of_line }

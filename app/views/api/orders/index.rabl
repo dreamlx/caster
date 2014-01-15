@@ -1,4 +1,4 @@
-collection @orders
+collection @orders, :root => "orders"
 attributes :id, :number
 child(:seat) { |seat| :id, :name, :state }
 child(:user) { |user| :id, :name }

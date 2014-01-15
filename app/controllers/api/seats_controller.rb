@@ -1,8 +1,11 @@
 module Api
   class SeatsController < Api::BaseController
     def index
-      @lesson = Lesson.find(params[:lesson_id])
-
+      if params[:lesson_id].blank?
+        @seats = Seat.all
+      else
+        @seats = Lesson.find(params[:lesson_id]).seats
+      end
     end
     
     def show

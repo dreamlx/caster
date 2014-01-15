@@ -1,8 +1,7 @@
 #index.rabl
 #课程id、课程时间、老师id、老师照片、老师姓名、课程名称、教室名称、预订状态
 
-collection @lessons
-
+collection @lessons, :root => "lessons"
 attributes :id, :starting_time, :ending_time
 
 child(:teacher => :teacher) { attributes :id, :name, :img_url }
