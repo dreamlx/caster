@@ -52,7 +52,7 @@ module Api
         render :json=>{:state => 'error',:message=>"Invalid token."}
       else
         @user.reset_authentication_token!
-        render :json=>{:state => 'ok', :token=>params[:id]}
+        render :json=>{:state => 'ok', :token=>params[:id], :message: 'Token was deleted' }
       end
     end
 

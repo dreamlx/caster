@@ -99,13 +99,15 @@
         user[password]
     action： POST
     =>
-    {"token":"ramECuxkizHhT2GoHuLv","user":{"created_at":"2014-01-09T12:01:16Z","email":"test@gmail.com","id":1,"updated_at":"2014-01-09T12:01:16Z","username":null}} 
+    {"state":"ok","token":"ramECuxkizHhT2GoHuLv","user":{"created_at":"2014-01-09T12:01:16Z","email":"test@gmail.com","id":1,"updated_at":"2014-01-09T12:01:16Z","username":null}}
 
 ### show user
     curl http://127.0.0.1:3000/api/tokens/ramECuxkizHhT2GoHuLv
     =>
+    {"state":"ok","token":"ramECuxkizHhT2GoHuLv","user":{"created_at":"2014-01-09T12:01:16Z","email":"test@gmail.com","id":1,"updated_at":"2014-01-09T12:01:16Z","username":null}}
 ### 注销token
     curl -X DELETE http://127.0.0.1:3000/api/tokens/ramECuxkizHhT2GoHuLv
     action: DELETE
     =>
+    {"state":"ok","token":"ramECuxkizHhT2GoHuLv", "message":"token was deleted"}
 
