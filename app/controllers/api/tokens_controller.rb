@@ -49,10 +49,10 @@ module Api
     def destroy
       @user=User.find_by_authentication_token(params[:id])
       if @user.nil?
-        render :json=>{:state => 'error',:message=>"Invalid token."}
+        render :json=>{ state: 'error', message: "Invalid token."}
       else
         @user.reset_authentication_token!
-        render :json=>{:state => 'ok', :token=>params[:id], :message: 'Token was deleted' }
+        render :json=>{state: 'ok', token: params[:id], message: 'Token was deleted' }
       end
     end
 
