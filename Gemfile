@@ -16,6 +16,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'jquery-ui-rails'
 gem "heroku"
 gem 'inherited_resources'
+gem "default_value_for", "~> 3.0.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -1,3 +1,4 @@
+#coding: utf-8
 module Api
   class LessonsController < Api::BaseController
     def index
@@ -20,7 +21,7 @@ module Api
                          ending_time: lesson.ending_time,
                          course: { id: lesson.course_id, name: lesson.course.name},
                          room: { id: lesson.room_id, name: lesson.room.name},
-                         state: "预订"
+                         state: lesson.state
                        }
           
           if lesson.teacher.nil?

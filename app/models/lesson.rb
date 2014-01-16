@@ -1,3 +1,4 @@
+#coding: utf-8
 class Lesson < ActiveRecord::Base
   attr_accessible   :description,  
                     :name, 
@@ -14,4 +15,11 @@ class Lesson < ActiveRecord::Base
   belongs_to        :course
   
   has_many :seats, :through => :room
+
+  def state
+    sate_value = '订满'
+    self.seats.each {|seat| sate_value = '预订' if seat.state == '可选' or seat.state.blank? }
+    return sate_value
+  end
+  
 end
