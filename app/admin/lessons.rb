@@ -1,4 +1,5 @@
 ActiveAdmin.register Lesson do
+  #state：订满|预订
   belongs_to :course
   navigation_menu :course  
 

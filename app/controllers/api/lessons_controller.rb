@@ -19,13 +19,13 @@ module Api
                          ending_time: lesson.ending_time,
                          course: { id: lesson.course_id, name: lesson.course.name},
                          room: { id: lesson.room_id, name: lesson.room.name},
-                         state: "TODO"
+                         state: "预订"
                        }
           
           if lesson.teacher.nil?
             teacher = {}
           else
-            teacher =  { id: lesson.teacher_id, name: lesson.teacher.name, img: lesson.teacher.img}
+            teacher =  { id: lesson.teacher_id, name: lesson.teacher.name, img_url: lesson.teacher.img_url}
           end
           new_lesson[:teacher] = teacher
 
