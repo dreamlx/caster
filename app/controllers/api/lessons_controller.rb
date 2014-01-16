@@ -9,7 +9,7 @@ module Api
       # 获取2周
       (0..13).each do |i|
         item = {lesson_date: current_date}
-        tmp_lessons = Venue.find(params[:venue_id]).lessons.where("date(starting_time) = #{current_date}")
+        tmp_lessons = Venue.find(params[:venue_id]).lessons
         current_date = current_date.next_day
         
         lessons = []
@@ -31,7 +31,7 @@ module Api
           end
           new_lesson[:teacher] = teacher
 
-          lessons << new_lesson
+          lessons << new_lesson if not lesson.starting_time.nil? and lesson.starting_time.to_date == current_date
         end
         
         item[:lessons] = lessons
