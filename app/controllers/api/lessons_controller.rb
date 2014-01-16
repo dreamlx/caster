@@ -15,6 +15,7 @@ module Api
         tmp_lessons.each do |lesson|
           #课程id、课程时间、老师id、老师照片、老师姓名、课程名称、教室名称、预订状态
           new_lesson = { id: lesson.id, 
+                         name: lesson.name,
                          starting_time: lesson.starting_time, 
                          ending_time: lesson.ending_time,
                          course: { id: lesson.course_id, name: lesson.course.name},
