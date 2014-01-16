@@ -70,7 +70,9 @@
 ### show 查看单个订单（创建订单后会直接返回json）
     curl http://127.0.0.1:3000/api/orders/1
     =>
-
+### destroy 取消订单
+    curl -x DELETE http://127.0.0.1:3000/api/order/1
+    =>
 ##Teacher 老师
 ### index 看全部老师
     curl http://127.0.0.1:3000/api/teachers

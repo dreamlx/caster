@@ -2,7 +2,6 @@
 module Api
   class LessonsController < Api::BaseController
     def index
-      #TODO : 查询对应日期课程和可用状态
       current_date = params[:lessondate].to_date.beginning_of_week
         
       @lesson_groupby_dates = []
@@ -10,8 +9,9 @@ module Api
       # 获取2周
       (0..13).each do |i|
         item = {lesson_date: current_date}
+        tmp_lessons = Venue.find(params[:venue_id]).lessons.where("date(starting_time) = #{current_date}")
         current_date = current_date.next_day
-        tmp_lessons = Venue.find(params[:venue_id]).lessons
+        
         lessons = []
         tmp_lessons.each do |lesson|
           #课程id、课程时间、老师id、老师照片、老师姓名、课程名称、教室名称、预订状态
