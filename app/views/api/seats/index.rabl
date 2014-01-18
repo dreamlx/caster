@@ -1,4 +1,4 @@
 
 collection @seats, :root => "seats"
-attributes :name
+attributes :id, :name
 child(:room) { attributes :seatcount, :number_of_line }

@@ -10,7 +10,7 @@
     
     http://docs.qiniu.com/api/v6/image-process.html
 
-## venue 场馆
+## Venue 场馆
 ###index
 首页，查询场馆list
 
@@ -19,11 +19,39 @@
     [{"venue":{"id":1,"name":"test","img":null}}]
 
 ### show
-查询id=1 的场馆
+查询id=1 的场馆,包括场馆下rooms
 
     curl http://127.0.0.1:3000/api/venues/1                   
     =>
-    {"venue":{"id":1,"name":"test","description":null,"img":null}}
+    {"venue":{"id":1,"name":"test","description":"","img_url":"http://caster.qiniudn.com/uploads/venue/img/1/bg.jpg","rooms":[{"room":{"id":3,"name":"sdfs"}}]}}
+
+##Room 房间情况
+### index 房间列表
+参数：venue_id
+
+    curl http://caster2014.herokuapp.com/api/rooms?venue_id=2
+    =>
+    {"rooms":[{"room":{"id":3,"name":"HK Room A"}},{"room":{"id":2,"name":"PT Room B"}},{"room":{"id":1,"name":"PT Room A"}},{"room":{"id":4,"name":"HK Room B"}},{"room":{"id":5,"name":"HP Room A"}},{"room":{"id":6,"name":"HP Room B"}},{"room":{"id":7,"name":"BL Room A"}},{"room":{"id":8,"name":"BL Room B"}}]}
+
+### show 房间信息
+包括房间座位信息
+
+    curl http://caster2014.herokuapp.com/api/rooms/1
+    =>
+    {"room":{"id":1,"name":"1123","description":null,"seatcount":null,"number_of_line":null,"seats":[]}}
+
+## Seat 座位
+对应room，查看该room内的座位情况
+### index
+    curl http://caster2014.herokuapp.com/api/seats?room_id=8 
+    参数： room_id
+    =>
+    {"seats":[{"seat":{"name":"seat 1","room":{"seatcount":20,"number_of_line":5}}},{"seat":{"name":"seat 1","room":{"seatcount":20,"number_of_line":4}}}]}
+
+###show
+    curl http://caster2014.herokuapp.com/api/seats/1
+    =>
+    {"seat":{"id":1,"name":"seat 1"}
 
 ## lesson 课程
 ### index
@@ -43,16 +71,7 @@
     =>
     {"lesson":{"id":1,"lessontime":null,"status":"订满","teacher":{"id":1,"name":"jack","img":null,"description":null,"supply":null},"room":{"name":"1123"},"":null}}
 
-## Seats 座位
-### index
-    curl http://127.0.0.1:3000/api/seats?lesson_id=1
-    参数： lesson_id
-    =>
-    {"seats_info":{"seatcount":null,"number_of_line":null,"lesson_id":1,"seats":[]}}
-
-###show
-    curl http://127.0.0.1:3000/api/seats/1
-    =>
+##LessonSeats 课程座位情况
 
 ## Order 订单
 ### Create 下订单
