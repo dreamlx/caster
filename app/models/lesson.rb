@@ -17,7 +17,7 @@ class Lesson < ActiveRecord::Base
   has_many :seats, :through => :room
   has_many :lesson_seats
 
-  after_commit :generate_seat_state, :on => :create
+  after_create :generate_seat_state
 
   def state
     sate_value = '订满'
@@ -25,9 +25,10 @@ class Lesson < ActiveRecord::Base
     return sate_value
   end
 
+  private
   def generate_seat_state
     self.seats.each do |seat|
-      LessonSeat.create(seat_id: seat.id, lesson_id: self.id)
+      LessonSeat.create!(seat_id: seat.id, lesson_id: self.id)
     end
   end
   

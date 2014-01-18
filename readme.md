@@ -72,6 +72,12 @@
     {"lesson":{"id":1,"lessontime":null,"status":"订满","teacher":{"id":1,"name":"jack","img":null,"description":null,"supply":null},"room":{"name":"1123"},"":null}}
 
 ##LessonSeats 课程座位情况
+### index 
+参数：lesson_id
+
+    curl http://127.0.0.1:3000/api/lesson_seats?lesson_id=1
+    =>
+    [{"lesson_seat":{"id":1,"state":"可选","seatcount":null,"number_of_line":null,"seat":{"id":1,"name":"121"},"lesson":{"id":6,"name":""}}}]
 
 ## Order 订单
 ### Create 下订单
