@@ -18,10 +18,10 @@ module Api
       @order = Order.new(user_id: params[:user_id], seat_id: params[:seat_id])
 
       if @order.save
-        seat = Seat.find(params[:seat_id])
+        seat = LessonSeat.find(params[:seat_id])
         seat.state = '已订'
         seat.save
-        render status: 200, json: { message: 'Save order success', order: @order, seat: seat }
+        render status: 200, json: { message: 'Save order success', order: @order }
       else
         render status: 404, json: { message: 'Save order failed' }
       end
@@ -31,10 +31,10 @@ module Api
       @order = Order.find(params[:id])
       @order.state = 'cancel'
       @order.save
-      seat = Seat.find(@order.seat_id)
+      seat = LessonSeat.find(@order.seat_id)
       seat.state = '可选'
       seat.save
-      render status: 200, json: { message: 'Cancel order success', order: @order, seat: seat }
+      render status: 200, json: { message: 'Cancel order success', order: @order }
     end
   end
 end

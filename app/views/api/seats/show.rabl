@@ -1,2 +1,2 @@
 object @seat
-attributes :id, :name, :state
+attributes :id, :name

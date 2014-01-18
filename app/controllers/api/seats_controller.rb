@@ -4,8 +4,9 @@ module Api
       if params[:lesson_id].blank?
         @seats = Seat.all
       else
-        @seats = Lesson.find(params[:lesson_id]).seats
+        @seats = Room.find(params[:room_id]).seats
       end
+      return @seats
     end
     
     def show
