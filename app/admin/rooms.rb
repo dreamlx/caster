@@ -1,4 +1,5 @@
 ActiveAdmin.register Room do
+  menu false
   belongs_to :venue,  :optional => true
   #navigation_menu :venue
   sidebar "Details", only: [:show, :edit] do

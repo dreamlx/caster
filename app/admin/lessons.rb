@@ -1,7 +1,7 @@
 ActiveAdmin.register Lesson do
+  menu false
   #state：订满|预订
-  belongs_to :course
-  navigation_menu :course  
+  belongs_to :course, :optional => true
 
   index do
     column :course

@@ -1,4 +1,7 @@
+#coding: utf-8
+
 ActiveAdmin.register Teacher do
+  menu label: '教练', :priority => 30
   index do
     column :img do |teacher|
       image_tag("#{teacher.img.url}?imageView/2/w/128") unless teacher.img.url.blank?

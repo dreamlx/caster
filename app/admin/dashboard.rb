@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
@@ -5,8 +6,15 @@ ActiveAdmin.register_page "Dashboard" do
   content :title => proc{ I18n.t("active_admin.dashboard") } do
     div :class => "blank_slate_container", :id => "dashboard_default_message" do
       span :class => "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+        ol do
+            li link_to "设置场馆基本信息", admin_venues_path
+            li '设置场馆房间'
+            li link_to '设置课程基本信息', admin_courses_path
+            li link_to '设置老师基本信息', admin_teachers_path
+            li '设定每周课表'
+            li '会员管理'
+
+        end
       end
     end
 

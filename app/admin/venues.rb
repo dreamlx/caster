@@ -1,4 +1,6 @@
+#coding: utf-8
 ActiveAdmin.register Venue do
+  menu label: '场馆', priority: 10
   sidebar "Details", only: [:show, :edit] do
     ul do
       li link_to("Rooms", admin_venue_rooms_path(venue))

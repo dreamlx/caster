@@ -1,4 +1,6 @@
-ActiveAdmin.register AdminUser do     
+#coding: utf-8
+ActiveAdmin.register AdminUser do 
+menu label:'管理员', :priority => 70    
   index do                            
     column :email                     
     column :current_sign_in_at        
