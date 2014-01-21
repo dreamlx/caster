@@ -1,0 +1,21 @@
+zh-CN:
+  views:
+  activerecord:
+    models:
+      teacher: '老师'
+      venue: '场馆'
+      user: '用户'
+      admin_user: 管理员
+      room: 房间
+      seat: 座位
+      lesson_seat: 课程可选座位
+    attributes:
+
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."
+      extension_white_list_error: "请检查文件类型"  
+       
