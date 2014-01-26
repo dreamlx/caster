@@ -31,7 +31,7 @@ module Api
           end
           new_lesson[:teacher] = teacher
 
-          lessons << new_lesson if not lesson.starting_time.nil? and lesson.starting_time.to_date == current_date
+          lessons << new_lesson unless lesson.starting_time.nil?
         end
         
         item[:lessons] = lessons
