@@ -4,4 +4,5 @@ class Venue < ActiveRecord::Base
   has_many :lessons, :through => :rooms
 
   mount_uploader :img, ImageUploader
+  validates_presence_of :name
 end

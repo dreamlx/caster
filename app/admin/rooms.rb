@@ -13,7 +13,7 @@ ActiveAdmin.register Room do
     column :venue
     column :name
     column :description
-    column :size
+    column :seatcount
 
     default_actions
   end 

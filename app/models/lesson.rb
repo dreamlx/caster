@@ -16,7 +16,9 @@ class Lesson < ActiveRecord::Base
   
   has_many :seats, :through => :room
   has_many :lesson_seats
-
+  
+  validates_presence_of :name
+  
   after_create :generate_seat_state
 
   def state
@@ -28,7 +30,7 @@ class Lesson < ActiveRecord::Base
   private
   def generate_seat_state
     self.seats.each do |seat|
-      LessonSeat.create!(seat_id: seat.id, lesson_id: self.id)
+      self.lesson_seats.create!(seat_id: seat.id)
     end
   end
   
