@@ -8,21 +8,21 @@
 全局说明：凡是'/1'这样形式出现的，这里的数字1就是对应资源id号，类型integer
 
 图片用了qiniu云，img_url 可以跟参数，?imageView/2
-    
+
     http://docs.qiniu.com/api/v6/image-process.html
 
 ## Venue 场馆
 ###index
 首页，查询场馆list
 
-    curl http://127.0.0.1:3000/api/venues                            
+    curl http://127.0.0.1:3000/api/venues
     =>
     [{"venue":{"id":1,"name":"test","img":null}}]
 
 ### show
 查询id=1 的场馆,包括场馆下rooms
 
-    curl http://127.0.0.1:3000/api/venues/1                   
+    curl http://127.0.0.1:3000/api/venues/1
     =>
     {"venue":{"id":1,"name":"test","description":"","img_url":"http://caster.qiniudn.com/uploads/venue/img/1/bg.jpg","rooms":[{"room":{"id":3,"name":"sdfs"}}]}}
 
@@ -44,7 +44,7 @@
 ## Seat 座位
 对应room，查看该room内的座位情况
 ### index
-    curl http://caster2014.herokuapp.com/api/seats?room_id=8 
+    curl http://caster2014.herokuapp.com/api/seats?room_id=8
     参数： room_id
     =>
     {"seats":[{"seat":{"name":"seat 1","room":{"seatcount":20,"number_of_line":5}}},{"seat":{"name":"seat 1","room":{"seatcount":20,"number_of_line":4}}}]}
@@ -73,7 +73,7 @@
     {"lesson":{"id":1,"lessontime":null,"status":"订满","teacher":{"id":1,"name":"jack","img":null,"description":null,"supply":null},"room":{"name":"1123"},"":null}}
 
 ##LessonSeats 课程座位情况
-### index 
+### index
 参数：lesson_id
 
     curl http://127.0.0.1:3000/api/lesson_seats?lesson_id=1
@@ -104,7 +104,7 @@
     curl http://127.0.0.1:3000/api/teachers
 
 ###show 单个老师
-    curl http://127.0.0.1:3000/api/teachers/1    
+    curl http://127.0.0.1:3000/api/teachers/1
 
 ## User 用户
 ### create 创建用户
@@ -113,15 +113,15 @@
         user[email]
         user[password]
     action： POST
-    
-    => 
+
+    =>
     {"user":{"created_at":"2014-01-15T07:54:12Z","email":"test8@gmail.com","id":8,"updated_at":"2014-01-15T07:54:12Z","username":null},"token":"C3tXVd8uMyiUmJSr61mU","state":"ok"}%
 
 
 ### 获取token
 获取到token后，使用方法： http://xx.xxx.xx/resources?auth_token=ramECuxkizHhT2GoHuLv
 
-    curl -d "email=test@gmail.com&password=11111111" http://127.0.0.1:3000/api/tokens            
+    curl -d "email=test@gmail.com&password=11111111" http://127.0.0.1:3000/api/tokens
     参数：
         user[email]
         user[password]
