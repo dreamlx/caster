@@ -1,0 +1,85 @@
+<script language="javascript" type="text/javascript">
+jQuery(function(){
+	$('#js-venue-select').on('change', function(){
+		venue_id = $('#js-venue-select').val();
+		jQuery.ajax({
+			url: "/api/venues/get_rooms",
+			data: { "venue_id" : venue_id },
+			datatype: "html",
+			success:  function(data){
+				jQuery("#lesson_room_id").html(data);
+			}
+		});
+	});
+});
+</script>
+
+<%= form_for(@lesson, url: admin_lesson_path(@lesson), html: {method: "put", name: "form1"}) do |f| %>
+<fieldset class="inputs">
+	<ol>
+		<li class="select input optional" id="lesson_venue_input">
+			<label class="	label" for="lesson_venue_id">Venue</label>
+			<%= select_tag "venue_id", options_for_select(@venues.map { |item| [item.name, item.id] }), 
+			prompt: "Please select project", 
+			id: 'js-venue-select'
+			%>
+		</li>
+		
+		<li class="select input optional" id="lesson_room_input">
+			<label class="	label" for="lesson_room_id">Room</label>
+			<select id="lesson_room_id" name="lesson[room_id]">
+				<%= render :partial => 'venue_rooms' , :object => @rooms %>
+			</select>
+		</li>
+
+			
+		<li class="select input optional" id="lesson_teacher_input">
+			<label class="	label" for="lesson_teacher_id">Teacher</label>
+			<%= f.select(:teacher_id, options_for_select(@teachers.map { |item| [item.name, item.id] }, @lesson.teacher_id)) %>
+		</li>
+		
+		<li class="select input optional" id="lesson_course_input">
+			<label class="	label" for="lesson_course_id">Course</label>
+			<%= f.select(:course_id, options_for_select(@courses.map { |item| [item.name, item.id] }, @lesson.course_id )) %>
+		</li>
+		
+		<li class="string input required stringish" id="lesson_name_input">
+			<label class=" label" for="lesson_name">
+				Name
+				<abbr title="required">*</abbr>
+			</label>
+			<%= f.text_field :name, maxlength: "255" %> </br>
+		</li>
+			
+			
+		<li class="text input optional" id="lesson_description_input">
+			<label class=" label" for="lesson_description">Description</label>
+			<%= f.text_area :description, size: "6x12" %> </br>
+		</li>
+		
+		<li class="boolean input optional" id="lesson_supply_input">
+			<input name="lesson[supply]" type="hidden" value="0">
+			<label class="" for="lesson_supply">
+				<input id="lesson_supply" name="lesson[supply]" type="checkbox" value="true">Supply
+			</label>
+		</li>
+		<li class="number input optional numeric stringish" id="lesson_point_input">
+			<label class=" label" for="lesson_point">Point</label>
+			<input id="lesson_point" name="lesson[point]" step="any" type="number" value="<%= @lesson.point %>">
+		</li>
+	</ol>
+</fieldset>				
+<fieldset class="actions">
+	<ol>
+		<li class="action input_action" id="lesson_submit_action">
+			<%= f.submit "Update Lesson" %>
+		</li>
+		<li class="cancel">
+			<%= link_to  "Cancel", admin_course_lessons_path %>
+		</li>
+	</ol>
+</fieldset>
+
+<% end %>
+
+ 

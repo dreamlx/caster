@@ -3,9 +3,14 @@ Caster::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
+  
+  
   namespace :api do
-    resources :venues
+    resources :venues do
+      collection do
+        get 'get_rooms'
+      end
+    end
     resources :rooms
     resources :courses
     resources :seats
