@@ -14,7 +14,7 @@ jQuery(function(){
 });
 </script>
 
-<%= form_for(@lesson, url: admin_lesson_path(@lesson), html: {method: "put", name: "form1"}) do |f| %>
+<%= form_for(@lesson, url: admin_course_lesson_path(@lesson.course.id, @lesson.id), html: {method: "put", name: "form1"}) do |f| %>
 <fieldset class="inputs">
 	<ol>
 		<li class="select input optional" id="lesson_venue_input">
